@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}Register{%endblock%}
+{%block style%} <link rel="stylesheet" href="{%static 'css/login.css'%}">{%endblock%}
+{%block content%}
+<h1>Registration</h1>
+<div class="container">
+    <form action="/register/" method='post'class="login" >
+    {{er}}
+    {%csrf_token%}
+    <input type="text" name="uname" placeholder="Enter your username" class="form-control">
+    <input type="text" name="fname" placeholder="Enter your first name" class="form-control">
+    <input type="text" name="lname" placeholder="Enter your last name" class="form-control">
+    <input type="text" name="location" placeholder="Enter your location" class="form-control">
+    <input type="text" name = 'phone' placeholder="Enter your phone number" class="form-control">
+    <input type="email" name="em" placeholder="Enter your email address" class="form-control">
+     <input name="psw1" type="password" placeholder="password" class="form-control">
+    <input name="psw2" type="password" placeholder="confirm password" class="form-control">
+    <input type="submit" class="form-control btn btn-primary" value="Register">
+    <input type="reset" class="form-control btn btn-primary" value="Reset">
+</form>
+
+</div>
+
+{%endblock%}

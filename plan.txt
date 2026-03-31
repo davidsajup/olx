@@ -1,0 +1,4 @@
+1.Add ads - Done
+2.Register new user
+3.Login
+4.Give User functionalities based on access

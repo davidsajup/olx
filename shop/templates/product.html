@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}Product Details{%endblock%}
+{%block style%} <link rel="stylesheet" href="{%static 'css/product.css'%}">{%endblock%}
+
+{%block content%}
+
+<div class="container">
+    {%for i in pro%}
+    <img src="{{i.img.url}}" alt="" style="height: 200px;width:400px;">
+    <h2>{{i.name}}</h2>
+    <h4>₹{{i.price}}</h4>
+    <p>{{i.desc}}</p>
+    <h5>Contact Details</h5>
+    <h5>Phone : {{i.us.profile.phone}}</h5>
+    <h5>Email : {{i.us.profile.email}}</h5>
+    <h6 class="text-muted">{{i.location}}</h6>
+    
+    {%endfor%}
+
+</div>
+
+
+{%endblock%}

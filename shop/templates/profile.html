@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%} <link rel="stylesheet" href="{%static 'css/search.css'%}">{%endblock%}
+
+{%block content%}
+<h1>Profile</h1>
+<h3>Username :{{user}}</h3>
+<h3>Phone Number :{{user.profile.phone}}</h3>
+<h3>Email : {{user.profile.email}}</h3>
+<h3>Address :{{user.profile.location}}</h3>
+
+
+
+<div class="container">
+  {%for i in pro%}
+<div class="card ad" style="width: 25%;">
+  <img src="{{i.img.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <a href="/viewproduct/{{i.id}}" class="btn btn-outline-dark func">View Details</a>
+    {%if i.us == user %}
+      <a href="/editproduct/{{i.id}}" class="btn btn-outline-dark func">Edit Product</a>
+      <a href="/deleteproduct/{{i.id}}" class="btn btn-danger func">Delete Product</a>
+    {%endif%}
+  </div>
+</div>
+{%endfor%}
+</div>
+<h2>{{er}}</h2>
+
+
+{%endblock%}
