@@ -42,6 +42,15 @@ form{
 .sell-btn:hover{
     background-color: #f5c542;
 }
+
+.profile_logo{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding:5px;
+}
 </style>
 </head>
 <body>
@@ -57,7 +66,11 @@ form{
         </form>
          
         {%if user.is_authenticated%}
-        <h5>{{user.first_name}}</h5>
+        <div class="profile_logo">
+            <h5 style="margin-top: 8px;">{{user.first_name}}</h5>
+            <img src="{{user.profile.pic.url}}" alt="" height="40px" width="40px" style="border-radius: 50%;">
+        </div>
+        
         <a href="/logout/"><button type="button" class="btn btn-outline-dark rounded-pill">Logout</button></a>
         <a href="/profile/"><button type="button" class="btn btn-outline-dark rounded-pill">View My Profile</button></a>
         

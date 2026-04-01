@@ -27,6 +27,7 @@ class Product(models.Model):
         return self.name
     
 class Profile(models.Model):
+    pic=models.ImageField(upload_to='profile_pics',null=True,blank=True)
     phone = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)

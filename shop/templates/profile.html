@@ -1,19 +1,31 @@
 {%extends 'base.html'%}
 {%load static%}
-{%block style%} <link rel="stylesheet" href="{%static 'css/search.css'%}">{%endblock%}
+{%block style%} <link rel="stylesheet" href="{%static 'css/profile.css'%}">{%endblock%}
 
 {%block content%}
-<h1>Profile</h1>
-<h3>Username :{{user}}</h3>
-<h3>Phone Number :{{user.profile.phone}}</h3>
-<h3>Email : {{user.profile.email}}</h3>
-<h3>Address :{{user.profile.location}}</h3>
+<div class="card mb-3 profile" style="max-width: 80%;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{user.profile.pic.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">User Profile</h4>
+        <h5>Name : {{user.first_name}} {{user.last_name}}</h5>
+        <h5>Phone Number : {{user.profile.phone}}</h5>
+        <h5>Email Id: {{user.profile.email}}</h5>
+        <h5>Location : {{user.profile.location}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
+<h3 style="margin-left:20px;margin-top:10px;text-decoration:underline;">Your Ads</h3>
 <div class="container">
   {%for i in pro%}
-<div class="card ad" style="width: 25%;">
+<div class="card ad" style="width: 30%;">
   <img src="{{i.img.url}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{i.name}}</h5>
