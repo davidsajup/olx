@@ -32,7 +32,7 @@ form{
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 999px;
-  border: 3px solid transparent;
+  border: 5px solid transparent;
   cursor: pointer;
   background: 
     linear-gradient(white, white) padding-box,
@@ -66,12 +66,11 @@ form{
         </form>
          
         {%if user.is_authenticated%}
+        <a href="/logout/"><button type="button" class="btn btn-outline-dark rounded-pill">Logout</button></a>
         <div class="profile_logo">
             <h5 style="margin-top: 8px;">{{user.first_name}}</h5>
             <img src="{{user.profile.pic.url}}" alt="" height="40px" width="40px" style="border-radius: 50%;">
         </div>
-        
-        <a href="/logout/"><button type="button" class="btn btn-outline-dark rounded-pill">Logout</button></a>
         <a href="/profile/"><button type="button" class="btn btn-outline-dark rounded-pill">View My Profile</button></a>
         
         {%else%}
