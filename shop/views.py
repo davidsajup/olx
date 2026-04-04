@@ -94,7 +94,7 @@ def editproductfn(request,pid):
         f = ProductForm(request.POST,request.FILES,instance=product)
         if f.is_valid():
             f.save()
-            return redirect('/viewmyads/')
+            return redirect('/profile/')
     else:
         f = ProductForm(instance=product)
     
@@ -102,11 +102,12 @@ def editproductfn(request,pid):
 
 def deleteproductfn(request,pid):
     x=Product.objects.get(id=pid)
-    x.delete()
-    return redirect('/viewmyads/')
+    if request.method == 'POST':
+        x.delete()
+        return redirect('/profile/')
+    else:
+        return render(request,'deleteproduct.html')
 
-
-    
 def profile(request):
     x = Product.objects.filter(us=request.user)
     if x:

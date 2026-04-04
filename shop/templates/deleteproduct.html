@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{%load static%}
+
+{%block content%}
+
+<h2>Are you sure you want to delete ?</h2>
+
+<form method="POST">
+    {%csrf_token%}
+    <input type="submit" value="YES">  
+</form>
+<a href="/"><button>No</button></a>
+
+
+{%endblock%}
